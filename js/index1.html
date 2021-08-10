@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. 함수를 전달, 반환할 수 있다.
+        // 2. 함수는 객체다.. 사실 다 객체다...
+        // - 객체는 reference 변수로 다룬다.
+        var obj = {
+            nick: 'mario',
+            phone : '1010-2020',
+            // scope -function
+            print : function(){
+               
+                console.log(this.nick,this.phone);
+            }
+        };
+
+        // 이름() < -- 함수 호출
+        var obj2 = obj; // reference copy
+        obj2.nick = 'william';
+        obj.print();
+
+        console.log(obj);
+        obj.print();
+        // private
+        obj.address = 'busan dong 19';
+        console.log(obj);
+
+        // function use like class
+        var Book = function(){
+            console.log('Book')
+            this.title =  'javascript'; 
+        }
+        
+        // prototype
+        Book.prototype.print = function(){
+            conosle.log(this.title);
+        }
+        var book1 = new Book(); 
+        var book2 = new Book(); // constructor
+        //book1.print();
+        console.log(book1);
+        console.log(book2);
+        book1.print();
+        book2.title = 'python'
+        book2.print();
+
+        // ES6
+        class Member{
+            constructor(){
+                this.title = 'instance of Member';
+            }
+
+        }
+        var user = new Member();
+        console.log(user);
+        user.title = 'member in site';
+        console.log(user);
+
+
+
+
+    </script>
+    
+</body>
+</html>
